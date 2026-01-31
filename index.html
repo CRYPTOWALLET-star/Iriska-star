@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arctic Wallet Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://unpkg.com/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Основной контейнер -->
+    <div id="app" class="container">
+        <!-- Заголовок будет динамически меняться -->
+        <div class="header" id="screenHeader">
+            <h1 id="screenTitle">Arctic Wallet Pro</h1>
+            <p id="screenSubtitle">Расширенная демо-версия</p>
+        </div>
+        
+        <!-- Контент экрана -->
+        <div id="screenContent">
+            <!-- Загружается динамически -->
+            <div class="loading-spinner"></div>
+            <p>Загрузка...</p>
+        </div>
+        
+        <!-- Нижнее меню -->
+        <div class="bottom-nav">
+            <button class="nav-btn active" onclick="showScreen('main')">
+                <i class="fas fa-home"></i>
+                <span>Главная</span>
+            </button>
+            <button class="nav-btn" onclick="showScreen('pay')">
+                <i class="fas fa-paper-plane"></i>
+                <span>Оплата</span>
+            </button>
+            <button class="nav-btn" onclick="showScreen('receive')">
+                <i class="fas fa-qrcode"></i>
+                <span>Получить</span>
+            </button>
+            <button class="nav-btn" onclick="showScreen('history')">
+                <i class="fas fa-history"></i>
+                <span>История</span>
+            </button>
+            <button class="nav-btn" onclick="showScreen('settings')">
+                <i class="fas fa-cog"></i>
+                <span>Настройки</span>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Попап успешного платежа -->
+    <div id="paymentSuccess" class="payment-success">
+        <div class="success-content">
+            <div style="font-size: 60px; color: #00C6A2; margin-bottom: 20px;">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 style="margin-bottom: 10px;">Оплата успешна!</h2>
+            <p style="color: var(--text-gray); margin-bottom: 25px;">0.001 BTC → 4,250 ₽</p>
+            <p style="font-size: 14px; color: var(--text-gray);">Продавец получил перевод в рублях</p>
+            <button class="button" onclick="hidePaymentSuccess()" style="margin-top: 25px;">
+                Отлично!
+            </button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
